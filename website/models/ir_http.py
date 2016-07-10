@@ -91,7 +91,11 @@ class ir_http(orm.AbstractModel):
             request.session['geoip'] = record
 
     def get_page_key(self):
-        return (self._name, "cache", request.uid, request.lang, request.httprequest.full_path)
+        try:
+            path = request.httprequest.full_path
+        except:
+            path = request.httprequest.path
+        return (self._name, "cache", request.uid, request.lang, path)
 
     def _dispatch(self):
         first_pass = not hasattr(request, 'website')
