@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+ 		<record model="ir.ui.view" id="project_issue_form_view_inherit">
+			<field name="name">project.issue.form.inherit</field>
+			<field name="model">project.issue</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="project_issue.project_issue_form_view" />
+			<field name="arch" type="xml">
+				<xpath expr="//sheet/group/group/field[@name='task_id']"
+					position="replace">
+					<field name="task_id" on_change="project_issue.onchange_task_id(task_id)"
+						context="{'default_project_id':project_id}" string="Task"/>
+				</xpath>
+			</field>
+		</record> 
+	</data>
+</openerp>

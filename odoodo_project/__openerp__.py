@@ -12,10 +12,11 @@
     "demo_xml": [
     ],
     "depends": [
-       'project',
+       'project','project_issue'
     ],
     "data": [
      'view/task_view.xml',
+     'view/issue_view.xml',
     ],
     'test': [
     ],   
