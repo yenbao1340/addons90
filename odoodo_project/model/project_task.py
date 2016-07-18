@@ -1,6 +1,7 @@
 "project.project"# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 from openerp.osv import fields, osv
+from openerp.exceptions import Warning
 class task(osv.osv):   
     _inherit = "project.task"
 
@@ -20,7 +21,9 @@ class task(osv.osv):
     _defaults = {
         'priority': '1',
     }
-    
+    def unlink(self, cr, uid, ids, context=None):
+        raise Warning("Delete functionality has been disabled")
+        return 
     
 class project_issue(osv.Model):
     _inherit = "project.issue" 
@@ -29,3 +32,6 @@ class project_issue(osv.Model):
         'description': fields.html('Private Note'),
         
         } 
+    def unlink(self, cr, uid, ids, context=None):
+        raise Warning("Delete functionality has been disabled")
+        return 
