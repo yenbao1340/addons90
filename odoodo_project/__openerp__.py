@@ -12,11 +12,12 @@
     "demo_xml": [
     ],
     "depends": [
-       'project','project_issue'
+       'project','project_issue','base',
     ],
     "data": [
      'view/task_view.xml',
      'view/issue_view.xml',
+     'security/ir.model.access.csv',
     ],
     'test': [
     ],   
